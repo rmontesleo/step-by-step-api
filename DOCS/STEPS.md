@@ -29,10 +29,16 @@
     - Modify your service to inject the repository
      
 ## Step 4: Add logging to your application
+    - Implement the toString method in your entity
     - Use the Log and LogFactory from apache commons logging
     - use the methods for error, warn, info and debug
     - modify the logging levels in the appliction.yaml file
     - Test your logs in your classes
     - Add color to the console output
 
-
+## Step 5: Improve your api:  Derived and Query methods (for Repository)  and Request Parms (for controller)
+    - Clean up the logs . Set only the required ones.
+    - Derive methods and Transactional
+    - Query methods
+    - RequestParam (query params)
+    - import.sql file

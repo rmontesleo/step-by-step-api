@@ -1,7 +1,7 @@
 server:
   port: 8080
-  servlet:
-    context-path: "/todoapp/api"
+  #servlet:
+  #  context-path: "/todoapp/api"
 
 
 spring:

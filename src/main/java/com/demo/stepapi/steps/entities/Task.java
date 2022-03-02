@@ -42,6 +42,7 @@ public class Task {
         return "Task [active=" + active + ", createdAt=" + createdAt + ", description=" + description + ", taskId="
                 + taskId + ", title=" + title + "]";
     }
+    
     public Long getTaskId() {
         return taskId;
     }
