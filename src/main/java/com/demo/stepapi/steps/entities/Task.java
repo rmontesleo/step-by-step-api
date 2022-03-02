@@ -34,9 +34,14 @@ public class Task {
     private LocalDateTime createdAt;
     
     @Column( name = "updated_at")
-    private LocalDateTime updatedAt;
+    private LocalDateTime updatedAt;    
 
     
+    @Override
+    public String toString() {
+        return "Task [active=" + active + ", createdAt=" + createdAt + ", description=" + description + ", taskId="
+                + taskId + ", title=" + title + "]";
+    }
     public Long getTaskId() {
         return taskId;
     }
