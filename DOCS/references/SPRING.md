@@ -27,3 +27,5 @@
 - [Transactional Annotations: Spring vs. JTA](https://www.baeldung.com/spring-vs-jta-transactional)
 
 - [Spring @RequestParam Annotation](https://www.baeldung.com/spring-request-param)
+
+- [Configure Multiple DataSource using Spring Boot and Spring Data | Java Techie](https://www.youtube.com/watch?v=iDogrHEo4x0)
