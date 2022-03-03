@@ -33,3 +33,10 @@
 - [Configure Multiple DataSource using Spring Boot and Spring Data | Java Techie](https://www.youtube.com/watch?v=iDogrHEo4x0)
 
 - [Spring DATA JPA - Múltiple Bases de Datos](https://www.youtube.com/watch?v=_Qpvn1s_afg)
+
+
+- [Swagger](https://swagger.io/)
+
+- [SpringFox](https://github.com/springfox/springfox)
+
+- [Setting Up Swagger 2 with a Spring REST API](https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api)
