@@ -48,3 +48,11 @@
     - setup launch.json from add configuration
     - decalre environment varibles
     - read environment variables in yaml or code
+
+## Step 7: Swagger
+    - What is Swagger?
+    - SpringFox Project
+    - issues with version 3 (March 2022)
+    - Adding maven dependencies with MVN Repository    
+    - Configuring Swagger Bean
+    - Testing API
