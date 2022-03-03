@@ -42,3 +42,9 @@
     - Query methods
     - RequestParam (query params)
     - import.sql file
+
+## Step 6: Environment Variables
+    - clean up Autowired annotation
+    - setup launch.json from add configuration
+    - decalre environment varibles
+    - read environment variables in yaml or code

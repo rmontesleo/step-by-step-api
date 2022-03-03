@@ -1,5 +1,5 @@
 server:
-  port: ${APPLICATION_PORT}
+  port: 8080
   #servlet:
   #  context-path: "/todoapp/api"
 
@@ -8,15 +8,15 @@ spring:
   application:
     name: todoapp
   datasource:
-    password: ${SPRING_DATASOURCE_PASSWORD}
-    url: ${SPRING_DATASOURCE_URL}
-    username: ${SPRING_DATASOURCE_USERNAME}
+    password: SuperSecret
+    url: jdbc:h2:mem:todoappdb
+    username: sa
   jpa:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
-        format_sql: ${IS_FORMAT_SQL}
-    show_sql: ${IS_SHOW_SQL}
+        format_sql: true
+    show_sql: true
   output:
     ansi:
       enabled: ALWAYS  
@@ -28,5 +28,3 @@ logging:
     org.springfamework.web: ERROR
     org.hibernate: ERROR
     com.demo.stepapi: DEBUG
-
-myYamlValue: "Step by Step in YAML"

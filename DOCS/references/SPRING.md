@@ -28,6 +28,8 @@
 
 - [Spring @RequestParam Annotation](https://www.baeldung.com/spring-request-param)
 
+- [springboot connect with two different databases](https://www.youtube.com/results?search_query=springboot+connect+with+two+different+databases)
+
 - [Configure Multiple DataSource using Spring Boot and Spring Data | Java Techie](https://www.youtube.com/watch?v=iDogrHEo4x0)
 
-- [springboot connect with two different databases](https://www.youtube.com/results?search_query=springboot+connect+with+two+different+databases)
+- [Spring DATA JPA - Múltiple Bases de Datos](https://www.youtube.com/watch?v=_Qpvn1s_afg)

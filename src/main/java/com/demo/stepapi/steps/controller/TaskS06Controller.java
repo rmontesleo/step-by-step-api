@@ -4,11 +4,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import com.demo.stepapi.steps.entities.Task;
-import com.demo.stepapi.steps.service.TaskS05Service;
+import com.demo.stepapi.steps.service.TaskS06Service;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,21 +22,34 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
-@RequestMapping("/steps/05/tasks")
-public class TaskS05Controller {
+@RequestMapping("/steps/06/tasks")
+public class TaskS06Controller {
 
 	
-	private final TaskS05Service service;
-
-	private final Log LOGGER = LogFactory.getLog(TaskS05Controller.class);
+	private final TaskS06Service service;
+		
+	private final Log LOGGER = LogFactory.getLog(TaskS06Controller.class);
 	
-	public TaskS05Controller( @Autowired TaskS05Service service ){
+	private final String projectName;
+
+	private final String yamlValue;
+
+	
+	public TaskS06Controller( 
+		TaskS06Service service, 
+		@Value("${PROJECT_NAME}")String projectName,
+		@Value("${myYamlValue}") String yamlValue  ){
 		this.service = service;
+		this.projectName = projectName;
+		this.yamlValue = yamlValue;
 	}
 
 
 	@GetMapping("")
 	public ResponseEntity<List<Task>> fetchAllTask(){
+		LOGGER.debug("## The Project is " +  projectName );
+		LOGGER.debug("## The value in yaml is " +  yamlValue );		
+
 		return ResponseEntity.ok().body( service.getAllTask() );
 	}
 	
