@@ -54,8 +54,6 @@ public class TaskS05Service {
 			LOGGER.error("---- error inf delete task", e );			
 			return false;
 		}
-		
-
 	}
 	
     

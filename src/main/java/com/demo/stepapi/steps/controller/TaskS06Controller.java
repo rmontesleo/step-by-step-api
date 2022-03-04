@@ -39,6 +39,7 @@ public class TaskS06Controller {
 		TaskS06Service service, 
 		@Value("${PROJECT_NAME}")String projectName,
 		@Value("${myYamlValue}") String yamlValue  ){
+			
 		this.service = service;
 		this.projectName = projectName;
 		this.yamlValue = yamlValue;

@@ -2,14 +2,19 @@ package com.demo.stepapi.steps.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+
 import java.util.List;
 
+import com.demo.stepapi.steps.entities.Job;
 import com.demo.stepapi.steps.entities.Task;
-import com.demo.stepapi.steps.service.TaskS04Service;
+import com.demo.stepapi.steps.service.JobService;
+import com.demo.stepapi.steps.service.TaskS06Service;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,42 +24,29 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
-@RequestMapping("/steps/04/tasks")
-public class TaskS04Controller {
+@RequestMapping("/steps/09/requirement")
+public record RecordRequirementController( JobService service ){
 
-	
-	private final TaskS04Service service;
-
-	private final Log LOGGER = LogFactory.getLog(TaskS04Controller.class);
-	
-	public TaskS04Controller( @Autowired TaskS04Service service ){
-		this.service = service;
-	}
-
-	
+		
+	private static final Log LOGGER = LogFactory.getLog( RecordRequirementController.class );
 
 	@GetMapping("")
-	public ResponseEntity<List<Task>> fetchAllTask(){
-		return ResponseEntity.ok().body( service.getAllTask() );
+	public ResponseEntity<List<Job>> fetchAllTask(){
+		return ResponseEntity.ok().body( service.findAllJobs() );
 	}
 	
 
 	@PostMapping("")
-	public ResponseEntity<Task> postTask( @RequestBody Task newTask ){
-		System.out.println( "------ the new task is " + newTask );
+	public ResponseEntity<Job> postTask( @RequestBody Job newJob ){		
+		LOGGER.debug("## the new job log.debug is" + newJob );
+		return ResponseEntity.status(HttpStatus.CREATED).body( service.saveJob(newJob)  );
+	}	
 
-		LOGGER.error("## the new task with log.error is" + newTask );
-		LOGGER.warn("## the new task with log.warning  is" + newTask );
-		LOGGER.info("## the new task with log.info  is" + newTask );		
-		LOGGER.debug("## the new task log.debug is" + newTask );
-
-		return ResponseEntity.status(HttpStatus.CREATED).body( service.saveTask(newTask)  );
-	}
-
-	
+	/*
 	
 	@GetMapping("/{taskId}")
 	public ResponseEntity<Task> getTaskById( @PathVariable("taskId") Long taskId  ){
@@ -66,7 +58,28 @@ public class TaskS04Controller {
 	}
 
 
-	
+	@GetMapping("/owner/{ownerId}")
+	public ResponseEntity<List<Task>> fetchTaskByOwner( @PathVariable String ownerId ){
+		return  ResponseEntity.ok().body( service.findByOwnerId(ownerId) ) ;
+	}
+
+
+	@GetMapping("/owner/{ownerId}/active")
+	public ResponseEntity<List<Task>> fetchTaskByOwnerAndStatus( 
+		@PathVariable String ownerId,
+		@RequestParam(name="status") boolean active ){
+		return  ResponseEntity.ok()
+					.body( service.findByOwnerIdAndStatus(ownerId, active)  ) ;
+	}
+
+	@GetMapping("/owner/{ownerId}/optional")
+	public ResponseEntity<List<Task>> fetchTaskByOwnerOptionalStatus( 
+		@PathVariable String ownerId,
+		@RequestParam(name="status", defaultValue = "true") boolean active ){
+		return  ResponseEntity.ok()
+					.body( service.findByOwnerIdAndStatus(ownerId, active)  ) ;
+	}
+
 
 	@DeleteMapping("/{taskId}")
 	public ResponseEntity<Void> deleteTask( @PathVariable("taskId") Long taskId ){
@@ -94,5 +107,7 @@ public class TaskS04Controller {
 				})
 				.orElse( ResponseEntity.status(HttpStatus.NOT_FOUND).build() );					
 	}	
+
+	*/
     
 }
