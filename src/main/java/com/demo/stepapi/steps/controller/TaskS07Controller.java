@@ -2,46 +2,63 @@ package com.demo.stepapi.steps.controller;
 
 import java.util.List;
 
-import com.demo.stepapi.steps.entities.Job;
-import com.demo.stepapi.steps.service.JobService;
+import com.demo.stepapi.steps.entities.Task;
+import com.demo.stepapi.steps.service.ITaskService;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import lombok.RequiredArgsConstructor;
 
 
 @RestController
-@RequestMapping("/steps/09/jobs/simple")
-@RequiredArgsConstructor
-public class SimpleJobController {
-
+@RequestMapping("/steps/07/tasks")
+public class TaskS07Controller {	
 	
-	private final JobService service;
+	private final ITaskService service;
 		
-	private final Log LOGGER = LogFactory.getLog( SimpleJobController.class );
+	private final Log LOGGER = LogFactory.getLog(TaskS07Controller.class);
+	
+	private final String envValue;
+
+	private final String yamlValue;
+	
+	public TaskS07Controller( 
+		@Qualifier("taskService")  ITaskService service, 
+		@Value("${myEnvValue}")String envValue,
+		@Value("${myYamlValue}") String yamlValue  ){
+			
+		this.service = service;
+		this.envValue = envValue;
+		this.yamlValue = yamlValue;
+	}
 
 
 	@GetMapping("")
-	public ResponseEntity<List<Job>> fetchAllTask(){
-		return ResponseEntity.ok().body( service.findAllJobs() );
+	public ResponseEntity<List<Task>> fetchAllTask(){
+		LOGGER.debug("## The ENV value is " +  envValue );
+		LOGGER.debug("## The YAML value is " +  yamlValue );		
+
+		return ResponseEntity.ok().body( service.getAllTask() );
 	}
 	
 
 	@PostMapping("")
-	public ResponseEntity<Job> postTask( @RequestBody Job newJob ){		
-		LOGGER.debug("## the new job log.debug is" + newJob );
-		return ResponseEntity.status(HttpStatus.CREATED).body( service.saveJob(newJob)  );
+	public ResponseEntity<Task> postTask( @RequestBody Task newTask ){		
+		LOGGER.debug("## the new task log.debug is" + newTask );
+		return ResponseEntity.status(HttpStatus.CREATED).body( service.saveTask(newTask)  );
 	}	
-
-	/*
 	
 	@GetMapping("/{taskId}")
 	public ResponseEntity<Task> getTaskById( @PathVariable("taskId") Long taskId  ){
@@ -102,7 +119,5 @@ public class SimpleJobController {
 				})
 				.orElse( ResponseEntity.status(HttpStatus.NOT_FOUND).build() );					
 	}	
-
-	*/
     
 }

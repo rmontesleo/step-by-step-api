@@ -49,3 +49,9 @@
 - [Spring Boot Data JPA @NamedQuery](https://zetcode.com/springboot/datajpanamedquery/)
 
 - [Derived Query Methods in Spring Data JPA Repositories](https://www.baeldung.com/spring-data-derived-queries)
+
+- [The Spring @Qualifier Annotation](https://www.baeldung.com/spring-qualifier-annotation)
+
+- [Static and Default Methods in Interfaces in Java](https://www.baeldung.com/java-static-default-methods)
+
+- [Guide to Stream.reduce()](https://www.baeldung.com/java-stream-reduce)

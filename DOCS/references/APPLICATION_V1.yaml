@@ -28,3 +28,5 @@ logging:
     org.springfamework.web: ERROR
     org.hibernate: ERROR
     com.demo.stepapi: DEBUG
+
+myYamlValue: "Step by Step in YAML"
