@@ -17,7 +17,7 @@ public class TaskS06Service {
 	
 	private final TaskRepository repository;
 
-	private final Log LOGGER = LogFactory.getLog(TaskS05Service.class);
+	private final Log LOGGER = LogFactory.getLog(TaskS06Service.class);
 
 	public TaskS06Service( TaskRepository repository){
 		this.repository = repository;

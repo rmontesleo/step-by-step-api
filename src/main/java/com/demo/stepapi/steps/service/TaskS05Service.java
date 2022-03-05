@@ -75,7 +75,8 @@ public class TaskS05Service {
 	}
 
 	public List<Task> findByOwnerId(String ownerId){
-		return repository.findByOwnerId(ownerId);
+		//return repository.findByOwnerId(ownerId);
+		return repository.buscarTodasLasTareasPorPropietario(ownerId);
 	}
 
 	public List<Task> findByOwnerIdAndStatus(String ownerId, boolean status){

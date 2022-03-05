@@ -11,8 +11,4 @@ public class StepapiApplication {
 		SpringApplication.run(StepapiApplication.class, args);
 	}
 
-
-
-
-
 }

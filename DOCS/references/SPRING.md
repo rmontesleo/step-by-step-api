@@ -40,3 +40,12 @@
 - [SpringFox](https://github.com/springfox/springfox)
 
 - [Setting Up Swagger 2 with a Spring REST API](https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api)
+
+
+- [JPA Query Methods](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods)
+
+- [JPA delete entity example – @NamedNativeQuery example](https://howtodoinjava.com/jpa/jpa-native-delete-sql-query-example/)
+
+- [Spring Boot Data JPA @NamedQuery](https://zetcode.com/springboot/datajpanamedquery/)
+
+- [Derived Query Methods in Spring Data JPA Repositories](https://www.baeldung.com/spring-data-derived-queries)
